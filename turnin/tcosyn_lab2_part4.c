@@ -33,9 +33,11 @@ int main(void) {
 		btemp = PINB;
 		ctemp = PINC;
 		totalWeight = (atemp + btemp + ctemp);
-		    if(totalWeight > 140){
+		    if(totalWeight < 140 || totalWeight == 140){
+		      out0 = 0x00;
+		    } else{
 		      out0 = 0x01;
-		    } 
+		    }
 		    if( ( (PINA - PINC) > outMax1) || ( (PINC - PINA) > outMax1) ){
 		      out1 = 0x02;    
 		    }
