@@ -36,6 +36,7 @@ int main(void) {
     }
     out2to7 = totalWeight & 0xFC;
     returnMe = out2to7 + out1 + out0;
-	}
+    PORTD = returnMe;
+    }
 	return 0;
 }
