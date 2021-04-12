@@ -25,17 +25,23 @@ int main(void) {
   unsigned char out2to7 = 0x00;
   unsigned char returnMe = 0x00;
   unsigned char outMax1 = 0x50; // 80kg
+  	unsigned char atemp = 0x00;
+  	unsigned char btemp = 0x00;
+	unsigned char ctemp = 0x00;
 	while(1){
-		totalWeight = (PINA +  PINB + PINC);
-    if(totalWeight > 0x8C){
-      out0 = 0x01;
-    } 
-    if( ( (PINA - PINC) > outMax1) || ( (PINC - PINA) > outMax1) ){
-      out1 = 0x02;    
-    }
-    out2to7 = (totalWeight & 0xF0) >> 2;
-    returnMe = out2to7 + out1 + out0;
-    PORTD = returnMe;
-    }
+		atemp = PINA;
+		btemp = PINB;
+		ctemp = PINC;
+		totalWeight = (atemp + btemp + ctemp);
+		    if(totalWeight > 140){
+		      out0 = 0x01;
+		    } 
+		    if( ( (PINA - PINC) > outMax1) || ( (PINC - PINA) > outMax1) ){
+		      out1 = 0x02;    
+		    }
+		    out2to7 = (totalWeight & 0xF0) >> 2;
+		    returnMe = out2to7 + out1 + out0;
+		    PORTD = returnMe;
+		    }
 	return 0;
 }
