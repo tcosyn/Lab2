@@ -23,6 +23,7 @@ int main(void) {
         unsigned char tmpA3 = 0x00;
 	unsigned char count = 0x00;
     	unsigned char full = 0x80;
+	unsigned char max = 0x04;
 	while(1){
 		count = 0x00;
 		tmpA0 = PINA & 0x01;
@@ -31,10 +32,12 @@ int main(void) {
 		tmpA3 = (PINA & 0x08) >> 3;
 		
 		count = (tmpA0 + tmpA1 + tmpA2 + tmpA3);
+		
+		
 		if(tmpA0 && tmpA1 && tmpA2 && tmpA3){
-			PORTC = count + full;
+			PORTC = full;
 		} else {
-			PORTC = count;
+			PORTC = max - count;
 		}
 	}
 	return 0;
