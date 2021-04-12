@@ -18,25 +18,25 @@ tests = [ {'description': 'PINA: 0x00 => PORTC: 0x00',
     'steps': [ {'inputs': [('PINA', 0x00)], 'iterations': 5 } ],
     'expected': [('PORTC',0x00)],
     },
-    {'description': 'PINA: 0x03 => PORTC: 0x02',
+    {'description': 'PINA: 0x02 => PORTC: 0x01',
     'steps': [ {'inputs': [('PINA', 0x02)],'iterations': 5 } ],
+    'expected': [('PORTC', 0x01)],
+    },
+    {'description': 'PINA: 0x03 => PORTC: 0x02',
+    'steps': [ {'inputs': [('PINA', 0x03)],'iterations': 5 } ],
     'expected': [('PORTC', 0x02)],
     },
     {'description': 'PINA: 0x0B => PORTC: 0x03',
-    'steps': [ {'inputs': [('PINA', 0x01)],'iterations': 5 } ],
+    'steps': [ {'inputs': [('PINA', 0x0B)],'iterations': 5 } ],
     'expected': [('PORTC', 0x03)],
     },
-    {'description': 'PINA: 0x0F => PORTC: 0x04',
-    'steps': [ {'inputs': [('PINA', 0x01)],'iterations': 5 } ],
-    'expected': [('PORTC', 0x04)],
-    },
-    {'description': 'PINA: 0x02 => PORTC: 0x01',
-    'steps': [ {'inputs': [('PINA', 0x01)],'iterations': 5 } ],
-    'expected': [('PORTC', 0x01)],
+    {'description': 'PINA: 0x0F => PORTC: 0x84',
+    'steps': [ {'inputs': [('PINA', 0x0F)],'iterations': 5 } ],
+    'expected': [('PORTC', 0x84)],
     },
 
     ]
-#watch = ['PORTC']
+#watch = ['PORTC'], ['PORTA']
 # Optionally you can add a set of "watch" variables these need to be global or static and may need
 # to be scoped at the function level (for static variables) if there are naming conflicts. The 
 # variables listed here will display everytime you hit (and stop at) a breakpoint
