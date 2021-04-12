@@ -24,11 +24,10 @@ int main(void) {
   unsigned char out1 = 0x00;
   unsigned char out2to7 = 0x00;
   unsigned char returnMe = 0x00;
-  unsigned char outMax0 = 0x8C; //140 kg
   unsigned char outMax1 = 0x50; // 80kg
 	while(1){
-		totalWeight = PINA +  PINB + PINC;
-    if(totalWeight > outMax0){
+		totalWeight = (PINA +  PINB + PINC);
+    if(totalWeight > 0x8C){
       out0 = 0x01;
     } 
     if( ( (PINA - PINC) > outMax1) || ( (PINC - PINA) > outMax1) ){
