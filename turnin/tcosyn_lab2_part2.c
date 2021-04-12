@@ -22,6 +22,7 @@ int main(void) {
 	unsigned char tmpA2 = 0;
         unsigned char tmpA3 = 0;
 	unsigned char count = 0x00;
+	unsigned char max = 0x04;
     	while (1) {
 		count = 0x00;
 		tmpA0 = PINA & 0x01;
@@ -30,7 +31,7 @@ int main(void) {
 		tmpA3 = (PINA & 0x08) >> 3;
 		
 		count = (tmpA0 + tmpA1 + tmpA2 + tmpA3);
-		PORTC = count;
+		PORTC = max - count;
 	}
 	return 0;
 }
