@@ -31,7 +31,7 @@ int main(void) {
     if(totalWeight > outMax0){
       out0 = 0x01;
     } 
-    if(abs(PINA - PINC) > outMax1){
+    if( ( (PINA - PINC) > outMax1) || ( (PINC - PINA) > outMax1) ){
       out1 = 0x02;    
     }
     out2to7 = (totalWeight & 0xF0) >> 2;
