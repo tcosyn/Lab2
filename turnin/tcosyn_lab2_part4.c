@@ -30,11 +30,11 @@ int main(void) {
 		totalWeight = PINA +  PINB + PINC;
     if(totalWeight > outMax0){
       out0 = 0x01;
-      out1 = 0x02;
-    } else if (totalWeight > outMax1){
-      out1 = 0x02; 
+    } 
+    if((PINA - PINC) > outMax1){
+      out1 = 0x02;    
     }
-    out2to7 = totalWeight & 0xFC;
+    out2to7 = (totalWeight & 0xF0) >> 2;
     returnMe = out2to7 + out1 + out0;
     PORTD = returnMe;
     }
